@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FinalProject {
-    public partial class frmSearch : Form {
-        public frmSearch() {
+    public partial class frmAddReq : Form {
+        public frmAddReq() {
             InitializeComponent();
         }
     }
