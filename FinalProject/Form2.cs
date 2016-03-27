@@ -15,6 +15,7 @@ namespace FinalProject {
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
+            errProvider.Clear();
             int time;
             int price;
             if(!int.TryParse(txtTime.Text, out time)) {
@@ -25,6 +26,11 @@ namespace FinalProject {
                 errProvider.SetError(txtPrice, "Invalid price");
                 return;
             }
+            if(lstRequirements.Items.Count < 3) {
+                errProvider.SetError(lstRequirements, "Not enough requirements.");
+                return;
+            }
+
         }
 
         private void radNewPrereq_CheckedChanged(object sender, EventArgs e) {
@@ -35,6 +41,7 @@ namespace FinalProject {
             }
         }
         private void newPrereq(bool option) {
+            btnAddReq.Enabled = !option;
             btnAddNewReq.Enabled = option;            
         }
         private void previousPrereq(bool option) {
@@ -75,6 +82,42 @@ namespace FinalProject {
 
         private void frmAddEdit_Load(object sender, EventArgs e) {
             radNewPrereq.Checked = true;
+        }
+
+        private void btnAddReq_Click(object sender, EventArgs e) {
+            errProvider.Clear();
+            if (radExistingPrereq.Checked) {
+                if(lstExistingItems.SelectedItem == null) {
+                    errProvider.SetError(lstExistingItems, "Select an item.");
+                    return;
+                }
+                lstRequirements.Items.Add(lstExistingItems.SelectedItem);
+                return;
+            }
+            if (radMaterial.Checked) {
+                if(cboMaterials.SelectedItem == null) {
+                    errProvider.SetError(cboMaterials, "Select an item.");
+                    return;
+                }
+                int amount;
+                if(!int.TryParse(txtMaterialAmount.Text, out amount)) {
+                    errProvider.SetError(txtMaterialAmount, "Invalid amount.");
+                    return;
+                }
+
+                MaterialRequirement item = new MaterialRequirement();
+                item.name = cboMaterials.SelectedItem.ToString();
+                item.amount = amount;
+                lstRequirements.Items.Add(amount);
+            }
+        }
+    }
+    struct MaterialRequirement {
+        public string name;
+        public int amount;
+
+        public override string ToString() {
+            return amount + " " + name;
         }
     }
 }
