@@ -13,5 +13,18 @@ namespace FinalProject {
         public frmSearch() {
             InitializeComponent();
         }
+
+        private void btnSearch_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            frmAddEdit addForm = new frmAddEdit();
+            addForm.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
