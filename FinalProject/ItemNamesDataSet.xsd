@@ -57,7 +57,7 @@ SELECT Name, Type FROM ItemNames WHERE (Name = @Name)</CommandText>
               <DbSource ConnectionRef="ItemsConnectionString (Settings)" DbObjectName="dbo.ItemNames" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="ResetTable" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="ResetTable" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="ResetTable">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT * FROM dbo.ItemNames</CommandText>
+                    <CommandText>SELECT Name,Type FROM dbo.ItemNames</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -84,7 +84,7 @@ ORDER BY Name</CommandText>
   <xs:element name="ItemNamesDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ItemNamesDataSet" msprop:Generator_UserDSName="ItemNamesDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ItemNames" msprop:Generator_TableClassName="ItemNamesDataTable" msprop:Generator_TableVarName="tableItemNames" msprop:Generator_RowChangedName="ItemNamesRowChanged" msprop:Generator_TablePropName="ItemNames" msprop:Generator_RowDeletingName="ItemNamesRowDeleting" msprop:Generator_RowChangingName="ItemNamesRowChanging" msprop:Generator_RowEvHandlerName="ItemNamesRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemNamesRowDeleted" msprop:Generator_RowClassName="ItemNamesRow" msprop:Generator_UserTableName="ItemNames" msprop:Generator_RowEvArgName="ItemNamesRowChangeEvent">
+        <xs:element name="ItemNames" msprop:Generator_TableClassName="ItemNamesDataTable" msprop:Generator_TableVarName="tableItemNames" msprop:Generator_TablePropName="ItemNames" msprop:Generator_RowDeletingName="ItemNamesRowDeleting" msprop:Generator_RowChangingName="ItemNamesRowChanging" msprop:Generator_RowEvHandlerName="ItemNamesRowChangeEventHandler" msprop:Generator_RowDeletedName="ItemNamesRowDeleted" msprop:Generator_UserTableName="ItemNames" msprop:Generator_RowChangedName="ItemNamesRowChanged" msprop:Generator_RowEvArgName="ItemNamesRowChangeEvent" msprop:Generator_RowClassName="ItemNamesRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">

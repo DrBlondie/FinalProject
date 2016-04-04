@@ -34,16 +34,17 @@ namespace FinalProject {
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnReset = new System.Windows.Forms.Button();
+            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
             this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
-            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnViewReq = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -55,7 +56,7 @@ namespace FinalProject {
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(12, 145);
+            this.btnSearch.Location = new System.Drawing.Point(12, 134);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(127, 23);
             this.btnSearch.TabIndex = 3;
@@ -65,7 +66,7 @@ namespace FinalProject {
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(12, 224);
+            this.btnAdd.Location = new System.Drawing.Point(12, 252);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(127, 23);
             this.btnAdd.TabIndex = 4;
@@ -75,7 +76,7 @@ namespace FinalProject {
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(12, 277);
+            this.btnEdit.Location = new System.Drawing.Point(12, 305);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(127, 23);
             this.btnEdit.TabIndex = 5;
@@ -91,7 +92,7 @@ namespace FinalProject {
             "Location"});
             this.cboSearchBy.Location = new System.Drawing.Point(12, 45);
             this.cboSearchBy.Name = "cboSearchBy";
-            this.cboSearchBy.Size = new System.Drawing.Size(121, 24);
+            this.cboSearchBy.Size = new System.Drawing.Size(127, 24);
             this.cboSearchBy.TabIndex = 1;
             // 
             // label1
@@ -148,6 +149,10 @@ namespace FinalProject {
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // errProvider
+            // 
+            this.errProvider.ContainerControl = this;
+            // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
@@ -176,15 +181,21 @@ namespace FinalProject {
             // 
             this.itemNamesTableAdapter.ClearBeforeFill = true;
             // 
-            // errProvider
+            // btnViewReq
             // 
-            this.errProvider.ContainerControl = this;
+            this.btnViewReq.Location = new System.Drawing.Point(12, 179);
+            this.btnViewReq.Name = "btnViewReq";
+            this.btnViewReq.Size = new System.Drawing.Size(127, 47);
+            this.btnViewReq.TabIndex = 10;
+            this.btnViewReq.Text = "View Requirements";
+            this.btnViewReq.UseVisualStyleBackColor = true;
             // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 455);
+            this.Controls.Add(this.btnViewReq);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnExit);
@@ -199,9 +210,9 @@ namespace FinalProject {
             this.Text = "Warframe Item Finder";
             this.Load += new System.EventHandler(this.frmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,6 +236,7 @@ namespace FinalProject {
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.ErrorProvider errProvider;
+        private System.Windows.Forms.Button btnViewReq;
     }
 }
 

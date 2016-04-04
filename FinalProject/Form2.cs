@@ -82,6 +82,13 @@ namespace FinalProject {
 
         private void frmAddEdit_Load(object sender, EventArgs e) {
             radNewPrereq.Checked = true;
+           
+            ItemNamesDataSet.ItemNamesDataTable table = this.itemNamesTableAdapter.GetData();
+            foreach (ItemNamesDataSet.ItemNamesRow row in table) {
+                if (!row.Type.Equals("Warframe")) {
+                    lstExistingItems.Items.Add(row.Name);
+                }
+            }
         }
 
         private void btnAddReq_Click(object sender, EventArgs e) {
