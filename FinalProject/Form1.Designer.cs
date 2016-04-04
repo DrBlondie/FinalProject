@@ -23,6 +23,7 @@ namespace FinalProject {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -32,7 +33,17 @@ namespace FinalProject {
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
+            this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
+            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -73,6 +84,7 @@ namespace FinalProject {
             // 
             // cboSearchBy
             // 
+            this.cboSearchBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSearchBy.FormattingEnabled = true;
             this.cboSearchBy.Items.AddRange(new object[] {
             "Item",
@@ -112,18 +124,68 @@ namespace FinalProject {
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nameDataGridViewTextBoxColumn,
+            this.typeDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.itemNamesBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(162, 25);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(437, 399);
+            this.dataGridView1.Size = new System.Drawing.Size(427, 372);
             this.dataGridView1.TabIndex = 8;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(327, 404);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(92, 39);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNamesBindingSource
+            // 
+            this.itemNamesBindingSource.DataMember = "ItemNames";
+            this.itemNamesBindingSource.DataSource = this.itemNamesDataSet;
+            // 
+            // itemNamesDataSet
+            // 
+            this.itemNamesDataSet.DataSetName = "ItemNamesDataSet";
+            this.itemNamesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // itemNamesTableAdapter
+            // 
+            this.itemNamesTableAdapter.ClearBeforeFill = true;
+            // 
+            // errProvider
+            // 
+            this.errProvider.ContainerControl = this;
             // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(622, 455);
+            this.ClientSize = new System.Drawing.Size(601, 455);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label2);
@@ -135,7 +197,11 @@ namespace FinalProject {
             this.Controls.Add(this.txtSearch);
             this.Name = "frmSearch";
             this.Text = "Warframe Item Finder";
+            this.Load += new System.EventHandler(this.frmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +218,13 @@ namespace FinalProject {
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnReset;
+        private ItemNamesDataSet itemNamesDataSet;
+        private System.Windows.Forms.BindingSource itemNamesBindingSource;
+        private ItemNamesDataSetTableAdapters.ItemNamesTableAdapter itemNamesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ErrorProvider errProvider;
     }
 }
 
