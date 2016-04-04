@@ -49,6 +49,19 @@ namespace FinalProject {
             errProvider.Clear();
             this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
         }
+
+        private void btnViewReq_Click(object sender, EventArgs e) {
+            errProvider.Clear();
+            DataGridViewSelectedRowCollection rows = dgvItems.SelectedRows;
+            if(rows.Count == 0) {
+                errProvider.SetError(dgvItems, "Please select an item");
+            }
+            if (rows.Count > 1) {
+                errProvider.SetError(dgvItems, "Please select only one item.");
+                return;
+            }
+            
+        }
     }
 
 

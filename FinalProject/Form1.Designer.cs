@@ -32,19 +32,19 @@ namespace FinalProject {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dgvItems = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
             this.btnViewReq = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -123,35 +123,21 @@ namespace FinalProject {
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // dataGridView1
+            // dgvItems
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvItems.AllowUserToDeleteRows = false;
+            this.dgvItems.AutoGenerateColumns = false;
+            this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.typeDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.itemNamesBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(162, 25);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(427, 372);
-            this.dataGridView1.TabIndex = 8;
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(327, 404);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(92, 39);
-            this.btnReset.TabIndex = 9;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
-            // 
-            // errProvider
-            // 
-            this.errProvider.ContainerControl = this;
+            this.dgvItems.DataSource = this.itemNamesBindingSource;
+            this.dgvItems.Location = new System.Drawing.Point(162, 25);
+            this.dgvItems.Name = "dgvItems";
+            this.dgvItems.ReadOnly = true;
+            this.dgvItems.RowTemplate.Height = 24;
+            this.dgvItems.Size = new System.Drawing.Size(427, 372);
+            this.dgvItems.TabIndex = 8;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -177,6 +163,20 @@ namespace FinalProject {
             this.itemNamesDataSet.DataSetName = "ItemNamesDataSet";
             this.itemNamesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(327, 404);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(92, 39);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // errProvider
+            // 
+            this.errProvider.ContainerControl = this;
+            // 
             // itemNamesTableAdapter
             // 
             this.itemNamesTableAdapter.ClearBeforeFill = true;
@@ -189,6 +189,7 @@ namespace FinalProject {
             this.btnViewReq.TabIndex = 10;
             this.btnViewReq.Text = "View Requirements";
             this.btnViewReq.UseVisualStyleBackColor = true;
+            this.btnViewReq.Click += new System.EventHandler(this.btnViewReq_Click);
             // 
             // frmSearch
             // 
@@ -197,7 +198,7 @@ namespace FinalProject {
             this.ClientSize = new System.Drawing.Size(601, 455);
             this.Controls.Add(this.btnViewReq);
             this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvItems);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -209,10 +210,10 @@ namespace FinalProject {
             this.Name = "frmSearch";
             this.Text = "Warframe Item Finder";
             this.Load += new System.EventHandler(this.frmSearch_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +229,7 @@ namespace FinalProject {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.Button btnReset;
         private ItemNamesDataSet itemNamesDataSet;
         private System.Windows.Forms.BindingSource itemNamesBindingSource;
