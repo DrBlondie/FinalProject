@@ -20,17 +20,17 @@ namespace FinalProject {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("ItemNamesDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("RequirementsDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class ItemNamesDataSet : global::System.Data.DataSet {
+    public partial class RequirementsDataSet : global::System.Data.DataSet {
         
-        private ItemNamesDataTable tableItemNames;
+        private RequirementsDataTable tableRequirements;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ItemNamesDataSet() {
+        public RequirementsDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace FinalProject {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected ItemNamesDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected RequirementsDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace FinalProject {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["ItemNames"] != null)) {
-                    base.Tables.Add(new ItemNamesDataTable(ds.Tables["ItemNames"]));
+                if ((ds.Tables["Requirements"] != null)) {
+                    base.Tables.Add(new RequirementsDataTable(ds.Tables["Requirements"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace FinalProject {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public ItemNamesDataTable ItemNames {
+        public RequirementsDataTable Requirements {
             get {
-                return this.tableItemNames;
+                return this.tableRequirements;
             }
         }
         
@@ -127,7 +127,7 @@ namespace FinalProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            ItemNamesDataSet cln = ((ItemNamesDataSet)(base.Clone()));
+            RequirementsDataSet cln = ((RequirementsDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace FinalProject {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["ItemNames"] != null)) {
-                    base.Tables.Add(new ItemNamesDataTable(ds.Tables["ItemNames"]));
+                if ((ds.Tables["Requirements"] != null)) {
+                    base.Tables.Add(new RequirementsDataTable(ds.Tables["Requirements"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace FinalProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableItemNames = ((ItemNamesDataTable)(base.Tables["ItemNames"]));
+            this.tableRequirements = ((RequirementsDataTable)(base.Tables["Requirements"]));
             if ((initTable == true)) {
-                if ((this.tableItemNames != null)) {
-                    this.tableItemNames.InitVars();
+                if ((this.tableRequirements != null)) {
+                    this.tableRequirements.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace FinalProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "ItemNamesDataSet";
+            this.DataSetName = "RequirementsDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/ItemNamesDataSet.xsd";
+            this.Namespace = "http://tempuri.org/RequirementsDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableItemNames = new ItemNamesDataTable();
-            base.Tables.Add(this.tableItemNames);
+            this.tableRequirements = new RequirementsDataTable();
+            base.Tables.Add(this.tableRequirements);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeItemNames() {
+        private bool ShouldSerializeRequirements() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace FinalProject {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            ItemNamesDataSet ds = new ItemNamesDataSet();
+            RequirementsDataSet ds = new RequirementsDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,23 +270,31 @@ namespace FinalProject {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void ItemNamesRowChangeEventHandler(object sender, ItemNamesRowChangeEvent e);
+        public delegate void RequirementsRowChangeEventHandler(object sender, RequirementsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class ItemNamesDataTable : global::System.Data.TypedTableBase<ItemNamesRow> {
+        public partial class RequirementsDataTable : global::System.Data.TypedTableBase<RequirementsRow> {
             
-            private global::System.Data.DataColumn columnName;
+            private global::System.Data.DataColumn columnItem_Name;
             
-            private global::System.Data.DataColumn columnType;
+            private global::System.Data.DataColumn columnRequirement_1;
+            
+            private global::System.Data.DataColumn columnRequirement_2;
+            
+            private global::System.Data.DataColumn columnRequirement_3;
+            
+            private global::System.Data.DataColumn columnRequirement_4;
+            
+            private global::System.Data.DataColumn columnPrice;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesDataTable() {
-                this.TableName = "ItemNames";
+            public RequirementsDataTable() {
+                this.TableName = "Requirements";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -294,7 +302,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ItemNamesDataTable(global::System.Data.DataTable table) {
+            internal RequirementsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -311,24 +319,56 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected ItemNamesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected RequirementsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn NameColumn {
+            public global::System.Data.DataColumn Item_NameColumn {
                 get {
-                    return this.columnName;
+                    return this.columnItem_Name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TypeColumn {
+            public global::System.Data.DataColumn Requirement_1Column {
                 get {
-                    return this.columnType;
+                    return this.columnRequirement_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Requirement_2Column {
+                get {
+                    return this.columnRequirement_2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Requirement_3Column {
+                get {
+                    return this.columnRequirement_3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Requirement_4Column {
+                get {
+                    return this.columnRequirement_4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PriceColumn {
+                get {
+                    return this.columnPrice;
                 }
             }
             
@@ -343,53 +383,57 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesRow this[int index] {
+            public RequirementsRow this[int index] {
                 get {
-                    return ((ItemNamesRow)(this.Rows[index]));
+                    return ((RequirementsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ItemNamesRowChangeEventHandler ItemNamesRowChanging;
+            public event RequirementsRowChangeEventHandler RequirementsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ItemNamesRowChangeEventHandler ItemNamesRowChanged;
+            public event RequirementsRowChangeEventHandler RequirementsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ItemNamesRowChangeEventHandler ItemNamesRowDeleting;
+            public event RequirementsRowChangeEventHandler RequirementsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event ItemNamesRowChangeEventHandler ItemNamesRowDeleted;
+            public event RequirementsRowChangeEventHandler RequirementsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddItemNamesRow(ItemNamesRow row) {
+            public void AddRequirementsRow(RequirementsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesRow AddItemNamesRow(string Name, string Type) {
-                ItemNamesRow rowItemNamesRow = ((ItemNamesRow)(this.NewRow()));
+            public RequirementsRow AddRequirementsRow(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, string Price) {
+                RequirementsRow rowRequirementsRow = ((RequirementsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Name,
-                        Type};
-                rowItemNamesRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowItemNamesRow);
-                return rowItemNamesRow;
+                        Item_Name,
+                        Requirement_1,
+                        Requirement_2,
+                        Requirement_3,
+                        Requirement_4,
+                        Price};
+                rowRequirementsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRequirementsRow);
+                return rowRequirementsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesRow FindByName(string Name) {
-                return ((ItemNamesRow)(this.Rows.Find(new object[] {
-                            Name})));
+            public RequirementsRow FindByItem_Name(string Item_Name) {
+                return ((RequirementsRow)(this.Rows.Find(new object[] {
+                            Item_Name})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                ItemNamesDataTable cln = ((ItemNamesDataTable)(base.Clone()));
+                RequirementsDataTable cln = ((RequirementsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -397,56 +441,70 @@ namespace FinalProject {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new ItemNamesDataTable();
+                return new RequirementsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnName = base.Columns["Name"];
-                this.columnType = base.Columns["Type"];
+                this.columnItem_Name = base.Columns["Item Name"];
+                this.columnRequirement_1 = base.Columns["Requirement 1"];
+                this.columnRequirement_2 = base.Columns["Requirement 2"];
+                this.columnRequirement_3 = base.Columns["Requirement 3"];
+                this.columnRequirement_4 = base.Columns["Requirement 4"];
+                this.columnPrice = base.Columns["Price"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.columnType = new global::System.Data.DataColumn("Type", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnType);
+                this.columnItem_Name = new global::System.Data.DataColumn("Item Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnItem_Name);
+                this.columnRequirement_1 = new global::System.Data.DataColumn("Requirement 1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequirement_1);
+                this.columnRequirement_2 = new global::System.Data.DataColumn("Requirement 2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequirement_2);
+                this.columnRequirement_3 = new global::System.Data.DataColumn("Requirement 3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequirement_3);
+                this.columnRequirement_4 = new global::System.Data.DataColumn("Requirement 4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRequirement_4);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnName}, true));
-                this.columnName.AllowDBNull = false;
-                this.columnName.Unique = true;
-                this.columnName.MaxLength = 100;
-                this.columnType.AllowDBNull = false;
-                this.columnType.MaxLength = 50;
+                                this.columnItem_Name}, true));
+                this.columnItem_Name.AllowDBNull = false;
+                this.columnItem_Name.Unique = true;
+                this.columnItem_Name.MaxLength = 100;
+                this.columnRequirement_1.MaxLength = 100;
+                this.columnRequirement_2.MaxLength = 100;
+                this.columnRequirement_3.MaxLength = 100;
+                this.columnRequirement_4.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesRow NewItemNamesRow() {
-                return ((ItemNamesRow)(this.NewRow()));
+            public RequirementsRow NewRequirementsRow() {
+                return ((RequirementsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new ItemNamesRow(builder);
+                return new RequirementsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(ItemNamesRow);
+                return typeof(RequirementsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.ItemNamesRowChanged != null)) {
-                    this.ItemNamesRowChanged(this, new ItemNamesRowChangeEvent(((ItemNamesRow)(e.Row)), e.Action));
+                if ((this.RequirementsRowChanged != null)) {
+                    this.RequirementsRowChanged(this, new RequirementsRowChangeEvent(((RequirementsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -454,8 +512,8 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.ItemNamesRowChanging != null)) {
-                    this.ItemNamesRowChanging(this, new ItemNamesRowChangeEvent(((ItemNamesRow)(e.Row)), e.Action));
+                if ((this.RequirementsRowChanging != null)) {
+                    this.RequirementsRowChanging(this, new RequirementsRowChangeEvent(((RequirementsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -463,8 +521,8 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.ItemNamesRowDeleted != null)) {
-                    this.ItemNamesRowDeleted(this, new ItemNamesRowChangeEvent(((ItemNamesRow)(e.Row)), e.Action));
+                if ((this.RequirementsRowDeleted != null)) {
+                    this.RequirementsRowDeleted(this, new RequirementsRowChangeEvent(((RequirementsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -472,14 +530,14 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.ItemNamesRowDeleting != null)) {
-                    this.ItemNamesRowDeleting(this, new ItemNamesRowChangeEvent(((ItemNamesRow)(e.Row)), e.Action));
+                if ((this.RequirementsRowDeleting != null)) {
+                    this.RequirementsRowDeleting(this, new RequirementsRowChangeEvent(((RequirementsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveItemNamesRow(ItemNamesRow row) {
+            public void RemoveRequirementsRow(RequirementsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -488,7 +546,7 @@ namespace FinalProject {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                ItemNamesDataSet ds = new ItemNamesDataSet();
+                RequirementsDataSet ds = new RequirementsDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -506,7 +564,7 @@ namespace FinalProject {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "ItemNamesDataTable";
+                attribute2.FixedValue = "RequirementsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -550,37 +608,166 @@ namespace FinalProject {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class ItemNamesRow : global::System.Data.DataRow {
+        public partial class RequirementsRow : global::System.Data.DataRow {
             
-            private ItemNamesDataTable tableItemNames;
+            private RequirementsDataTable tableRequirements;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal ItemNamesRow(global::System.Data.DataRowBuilder rb) : 
+            internal RequirementsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableItemNames = ((ItemNamesDataTable)(this.Table));
+                this.tableRequirements = ((RequirementsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Name {
+            public string Item_Name {
                 get {
-                    return ((string)(this[this.tableItemNames.NameColumn]));
+                    return ((string)(this[this.tableRequirements.Item_NameColumn]));
                 }
                 set {
-                    this[this.tableItemNames.NameColumn] = value;
+                    this[this.tableRequirements.Item_NameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Type {
+            public string Requirement_1 {
                 get {
-                    return ((string)(this[this.tableItemNames.TypeColumn]));
+                    try {
+                        return ((string)(this[this.tableRequirements.Requirement_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Requirement 1\' in table \'Requirements\' is DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableItemNames.TypeColumn] = value;
+                    this[this.tableRequirements.Requirement_1Column] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Requirement_2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequirements.Requirement_2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Requirement 2\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.Requirement_2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Requirement_3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequirements.Requirement_3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Requirement 3\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.Requirement_3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Requirement_4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequirements.Requirement_4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Requirement 4\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.Requirement_4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Price {
+                get {
+                    try {
+                        return ((string)(this[this.tableRequirements.PriceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'Requirements\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRequirements.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRequirement_1Null() {
+                return this.IsNull(this.tableRequirements.Requirement_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRequirement_1Null() {
+                this[this.tableRequirements.Requirement_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRequirement_2Null() {
+                return this.IsNull(this.tableRequirements.Requirement_2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRequirement_2Null() {
+                this[this.tableRequirements.Requirement_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRequirement_3Null() {
+                return this.IsNull(this.tableRequirements.Requirement_3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRequirement_3Null() {
+                this[this.tableRequirements.Requirement_3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRequirement_4Null() {
+                return this.IsNull(this.tableRequirements.Requirement_4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRequirement_4Null() {
+                this[this.tableRequirements.Requirement_4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPriceNull() {
+                return this.IsNull(this.tableRequirements.PriceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPriceNull() {
+                this[this.tableRequirements.PriceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -588,22 +775,22 @@ namespace FinalProject {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class ItemNamesRowChangeEvent : global::System.EventArgs {
+        public class RequirementsRowChangeEvent : global::System.EventArgs {
             
-            private ItemNamesRow eventRow;
+            private RequirementsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesRowChangeEvent(ItemNamesRow row, global::System.Data.DataRowAction action) {
+            public RequirementsRowChangeEvent(RequirementsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ItemNamesRow Row {
+            public RequirementsRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -619,7 +806,7 @@ namespace FinalProject {
         }
     }
 }
-namespace FinalProject.ItemNamesDataSetTableAdapters {
+namespace FinalProject.RequirementsDataSetTableAdapters {
     
     
     /// <summary>
@@ -631,7 +818,7 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class ItemNamesTableAdapter : global::System.ComponentModel.Component {
+    public partial class RequirementsTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -645,7 +832,7 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public ItemNamesTableAdapter() {
+        public RequirementsTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -742,37 +929,58 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "ItemNames";
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            tableMapping.ColumnMappings.Add("Type", "Type");
+            tableMapping.DataSetTable = "Requirements";
+            tableMapping.ColumnMappings.Add("Item Name", "Item Name");
+            tableMapping.ColumnMappings.Add("Requirement 1", "Requirement 1");
+            tableMapping.ColumnMappings.Add("Requirement 2", "Requirement 2");
+            tableMapping.ColumnMappings.Add("Requirement 3", "Requirement 3");
+            tableMapping.ColumnMappings.Add("Requirement 4", "Requirement 4");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[ItemNames] WHERE (([Name] = @Original_Name) AND ([Type] = @Ori" +
-                "ginal_Type))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Requirements] WHERE (([Item Name] = @Original_Item_Name) AND ((@IsNull_Requirement_1 = 1 AND [Requirement 1] IS NULL) OR ([Requirement 1] = @Original_Requirement_1)) AND ((@IsNull_Requirement_2 = 1 AND [Requirement 2] IS NULL) OR ([Requirement 2] = @Original_Requirement_2)) AND ((@IsNull_Requirement_3 = 1 AND [Requirement 3] IS NULL) OR ([Requirement 3] = @Original_Requirement_3)) AND ((@IsNull_Requirement_4 = 1 AND [Requirement 4] IS NULL) OR ([Requirement 4] = @Original_Requirement_4)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO ItemNames\r\n                  (Name, Type, Price, [Crafting Time])\r\nVA" +
-                "LUES (@Name,@Type,@Price,@Time); \r\nSELECT Name, Type FROM ItemNames WHERE (Name " +
-                "= @Name)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO Requirements
+                  ([Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4], Price)
+VALUES (@Item_Name,@Requirement_1,@Requirement_2,@Requirement_3,@Requirement_4,@Price); 
+SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4] FROM Requirements WHERE ([Item Name] = @Item_Name)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_1", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_2", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_3", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_4", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Crafting Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[ItemNames] SET [Name] = @Name, [Type] = @Type WHERE (([Name] = @Ori" +
-                "ginal_Name) AND ([Type] = @Original_Type));\r\nSELECT Name, Type FROM ItemNames WH" +
-                "ERE (Name = @Name)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Requirements] SET [Item Name] = @Item_Name, [Requirement 1] = @Requirement_1, [Requirement 2] = @Requirement_2, [Requirement 3] = @Requirement_3, [Requirement 4] = @Requirement_4 WHERE (([Item Name] = @Original_Item_Name) AND ((@IsNull_Requirement_1 = 1 AND [Requirement 1] IS NULL) OR ([Requirement 1] = @Original_Requirement_1)) AND ((@IsNull_Requirement_2 = 1 AND [Requirement 2] IS NULL) OR ([Requirement 2] = @Original_Requirement_2)) AND ((@IsNull_Requirement_3 = 1 AND [Requirement 3] IS NULL) OR ([Requirement 3] = @Original_Requirement_3)) AND ((@IsNull_Requirement_4 = 1 AND [Requirement 4] IS NULL) OR ([Requirement 4] = @Original_Requirement_4)));
+SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4] FROM Requirements WHERE ([Item Name] = @Item_Name)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Type", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -785,32 +993,25 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Name, Type FROM dbo.ItemNames";
+            this._commandCollection[0].CommandText = "SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requireme" +
+                "nt 4] FROM Requirements";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT Name,Type FROM dbo.ItemNames";
+            this._commandCollection[1].CommandText = "SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requireme" +
+                "nt 4] FROM Requirements WHERE ([Item Name] LIKE @name + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT * FROM dbo.ItemNames\r\nWHERE Name LIKE @name + \'%\'\r\nORDER BY Name";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT Name, Type FROM dbo.ItemNames\r\nWHERE Type LIKE @type + \'%\'\r\nORDER BY Name";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@type", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(ItemNamesDataSet.ItemNamesDataTable dataTable) {
+        public virtual int Fill(RequirementsDataSet.RequirementsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -823,9 +1024,9 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual ItemNamesDataSet.ItemNamesDataTable GetData() {
+        public virtual RequirementsDataSet.RequirementsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            ItemNamesDataSet.ItemNamesDataTable dataTable = new ItemNamesDataSet.ItemNamesDataTable();
+            RequirementsDataSet.RequirementsDataTable dataTable = new RequirementsDataSet.RequirementsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -834,32 +1035,8 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int ResetTable(ItemNamesDataSet.ItemNamesDataTable dataTable) {
+        public virtual int GetRequirement(RequirementsDataSet.RequirementsDataTable dataTable, string name) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual ItemNamesDataSet.ItemNamesDataTable ResetTables() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
-            ItemNamesDataSet.ItemNamesDataTable dataTable = new ItemNamesDataSet.ItemNamesDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int SearchName(ItemNamesDataSet.ItemNamesDataTable dataTable, string name) {
-            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
             }
@@ -876,34 +1053,32 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int SearchType(ItemNamesDataSet.ItemNamesDataTable dataTable, string type) {
-            this.Adapter.SelectCommand = this.CommandCollection[3];
-            if ((type == null)) {
-                throw new global::System.ArgumentNullException("type");
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual RequirementsDataSet.RequirementsDataTable GetRequirements(string name) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((name == null)) {
+                throw new global::System.ArgumentNullException("name");
             }
             else {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(type));
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(name));
             }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
+            RequirementsDataSet.RequirementsDataTable dataTable = new RequirementsDataSet.RequirementsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ItemNamesDataSet.ItemNamesDataTable dataTable) {
+        public virtual int Update(RequirementsDataSet.RequirementsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(ItemNamesDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "ItemNames");
+        public virtual int Update(RequirementsDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Requirements");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -925,18 +1100,44 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Name, string Original_Type) {
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+        public virtual int Delete(string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4) {
+            if ((Original_Item_Name == null)) {
+                throw new global::System.ArgumentNullException("Original_Item_Name");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Name));
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((string)(Original_Item_Name));
             }
-            if ((Original_Type == null)) {
-                throw new global::System.ArgumentNullException("Original_Type");
+            if ((Original_Requirement_1 == null)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Type));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Requirement_1));
+            }
+            if ((Original_Requirement_2 == null)) {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Requirement_2));
+            }
+            if ((Original_Requirement_3 == null)) {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Requirement_3));
+            }
+            if ((Original_Requirement_4 == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Requirement_4));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -958,21 +1159,38 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Name, string Type, int Price, int Time) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Insert(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, int Price) {
+            if ((Item_Name == null)) {
+                throw new global::System.ArgumentNullException("Item_Name");
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Item_Name));
             }
-            if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
+            if ((Requirement_1 == null)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Type));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Requirement_1));
             }
-            this.Adapter.InsertCommand.Parameters[2].Value = ((int)(Price));
-            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Time));
+            if ((Requirement_2 == null)) {
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Requirement_2));
+            }
+            if ((Requirement_3 == null)) {
+                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Requirement_3));
+            }
+            if ((Requirement_4 == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Requirement_4));
+            }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Price));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -993,30 +1211,74 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Name, string Type, string Original_Name, string Original_Type) {
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
+        public virtual int Update(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4) {
+            if ((Item_Name == null)) {
+                throw new global::System.ArgumentNullException("Item_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Name));
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Item_Name));
             }
-            if ((Type == null)) {
-                throw new global::System.ArgumentNullException("Type");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Type));
-            }
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
+            if ((Requirement_1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Name));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Requirement_1));
             }
-            if ((Original_Type == null)) {
-                throw new global::System.ArgumentNullException("Original_Type");
+            if ((Requirement_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Type));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Requirement_2));
+            }
+            if ((Requirement_3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Requirement_3));
+            }
+            if ((Requirement_4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Requirement_4));
+            }
+            if ((Original_Item_Name == null)) {
+                throw new global::System.ArgumentNullException("Original_Item_Name");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Item_Name));
+            }
+            if ((Original_Requirement_1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Requirement_1));
+            }
+            if ((Original_Requirement_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Requirement_2));
+            }
+            if ((Original_Requirement_3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Requirement_3));
+            }
+            if ((Original_Requirement_4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Requirement_4));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1038,8 +1300,8 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Type, string Original_Name, string Original_Type) {
-            return this.Update(Original_Name, Type, Original_Name, Original_Type);
+        public virtual int Update(string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4) {
+            return this.Update(Original_Item_Name, Requirement_1, Requirement_2, Requirement_3, Requirement_4, Original_Item_Name, Original_Requirement_1, Original_Requirement_2, Original_Requirement_3, Original_Requirement_4);
         }
     }
     
@@ -1055,7 +1317,7 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private ItemNamesTableAdapter _itemNamesTableAdapter;
+        private RequirementsTableAdapter _requirementsTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1077,12 +1339,12 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public ItemNamesTableAdapter ItemNamesTableAdapter {
+        public RequirementsTableAdapter RequirementsTableAdapter {
             get {
-                return this._itemNamesTableAdapter;
+                return this._requirementsTableAdapter;
             }
             set {
-                this._itemNamesTableAdapter = value;
+                this._requirementsTableAdapter = value;
             }
         }
         
@@ -1105,9 +1367,9 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._itemNamesTableAdapter != null) 
-                            && (this._itemNamesTableAdapter.Connection != null))) {
-                    return this._itemNamesTableAdapter.Connection;
+                if (((this._requirementsTableAdapter != null) 
+                            && (this._requirementsTableAdapter.Connection != null))) {
+                    return this._requirementsTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1122,7 +1384,7 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._itemNamesTableAdapter != null)) {
+                if ((this._requirementsTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1134,14 +1396,14 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(ItemNamesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(RequirementsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._itemNamesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.ItemNames.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._requirementsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Requirements.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._itemNamesTableAdapter.Update(updatedRows));
+                    result = (result + this._requirementsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1153,13 +1415,13 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(ItemNamesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(RequirementsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._itemNamesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.ItemNames.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._requirementsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Requirements.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._itemNamesTableAdapter.Update(addedRows));
+                    result = (result + this._requirementsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1171,13 +1433,13 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(ItemNamesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(RequirementsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._itemNamesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.ItemNames.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._requirementsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Requirements.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._itemNamesTableAdapter.Update(deletedRows));
+                    result = (result + this._requirementsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1213,15 +1475,15 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(ItemNamesDataSet dataSet) {
+        public virtual int UpdateAll(RequirementsDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._itemNamesTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._itemNamesTableAdapter.Connection) == false))) {
+            if (((this._requirementsTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._requirementsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1257,13 +1519,13 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._itemNamesTableAdapter != null)) {
-                    revertConnections.Add(this._itemNamesTableAdapter, this._itemNamesTableAdapter.Connection);
-                    this._itemNamesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._itemNamesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._itemNamesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._itemNamesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._itemNamesTableAdapter.Adapter);
+                if ((this._requirementsTableAdapter != null)) {
+                    revertConnections.Add(this._requirementsTableAdapter, this._requirementsTableAdapter.Connection);
+                    this._requirementsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._requirementsTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._requirementsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._requirementsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._requirementsTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1324,9 +1586,9 @@ namespace FinalProject.ItemNamesDataSetTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._itemNamesTableAdapter != null)) {
-                    this._itemNamesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._itemNamesTableAdapter]));
-                    this._itemNamesTableAdapter.Transaction = null;
+                if ((this._requirementsTableAdapter != null)) {
+                    this._requirementsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._requirementsTableAdapter]));
+                    this._requirementsTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

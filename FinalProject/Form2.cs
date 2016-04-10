@@ -30,7 +30,22 @@ namespace FinalProject {
                 errProvider.SetError(lstRequirements, "Not enough requirements.");
                 return;
             }
+            if (txtItemName.Text.Equals("")) {
+                errProvider.SetError(txtItemName, "Please enter the name.");
+                return;
+            }
+            if(cboType.SelectedItem == null) {
+                errProvider.SetError(cboType, "Please select a type.");
+                return;
+            }
 
+            string[] req = new string[4];
+            for (int i = 0; i < lstRequirements.Items.Count; i++) {
+                req[i] = lstRequirements.Items[i].ToString();
+            }
+            this.requirementsTableAdapter.Insert(txtItemName.Text, req[0], req[1], req[2], req[3], price);
+            this.itemNamesTableAdapter.Insert(txtItemName.Text, cboType.SelectedItem.ToString(), price, time);
+            this.Close();
         }
 
         private void radNewPrereq_CheckedChanged(object sender, EventArgs e) {
@@ -77,17 +92,20 @@ namespace FinalProject {
 
         private void btnAddNewReq_Click(object sender, EventArgs e) {
             frmAddReq addReq = new frmAddReq();
-            addReq.Show();
+            addReq.ShowDialog();
+            updateItems();
         }
 
         private void frmAddEdit_Load(object sender, EventArgs e) {
             radNewPrereq.Checked = true;
-           
-            ItemNamesDataSet.ItemNamesDataTable table = this.itemNamesTableAdapter.GetData();
-            foreach (ItemNamesDataSet.ItemNamesRow row in table) {
-                if (!row.Type.Equals("Warframe")) {
-                    lstExistingItems.Items.Add(row.Name);
-                }
+            updateItems();
+        }
+
+        private void updateItems() {
+            lstExistingItems.Items.Clear();
+            RequirementsDataSet.RequirementsDataTable table = this.requirementsTableAdapter.GetData();
+            foreach (RequirementsDataSet.RequirementsRow row in table) {
+                lstExistingItems.Items.Add(row.Item_Name);
             }
         }
 
@@ -111,20 +129,8 @@ namespace FinalProject {
                     errProvider.SetError(txtMaterialAmount, "Invalid amount.");
                     return;
                 }
-
-                MaterialRequirement item = new MaterialRequirement();
-                item.name = cboMaterials.SelectedItem.ToString();
-                item.amount = amount;
-                lstRequirements.Items.Add(amount);
+                lstRequirements.Items.Add(amount + " " + cboMaterials.SelectedItem.ToString());
             }
-        }
-    }
-    struct MaterialRequirement {
-        public string name;
-        public int amount;
-
-        public override string ToString() {
-            return amount + " " + name;
         }
     }
 }

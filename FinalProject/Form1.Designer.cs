@@ -41,10 +41,15 @@ namespace FinalProject {
             this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
             this.btnViewReq = new System.Windows.Forms.Button();
+            this.requirementsDataSet = new FinalProject.RequirementsDataSet();
+            this.requirementsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.requirementsTableAdapter = new FinalProject.RequirementsDataSetTableAdapters.RequirementsTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requirementsDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requirementsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -191,11 +196,25 @@ namespace FinalProject {
             this.btnViewReq.UseVisualStyleBackColor = true;
             this.btnViewReq.Click += new System.EventHandler(this.btnViewReq_Click);
             // 
+            // requirementsDataSet
+            // 
+            this.requirementsDataSet.DataSetName = "RequirementsDataSet";
+            this.requirementsDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // requirementsBindingSource
+            // 
+            this.requirementsBindingSource.DataMember = "Requirements";
+            this.requirementsBindingSource.DataSource = this.requirementsDataSet;
+            // 
+            // requirementsTableAdapter
+            // 
+            this.requirementsTableAdapter.ClearBeforeFill = true;
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 455);
+            this.ClientSize = new System.Drawing.Size(616, 455);
             this.Controls.Add(this.btnViewReq);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.dgvItems);
@@ -214,6 +233,8 @@ namespace FinalProject {
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requirementsDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.requirementsBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -234,10 +255,13 @@ namespace FinalProject {
         private ItemNamesDataSet itemNamesDataSet;
         private System.Windows.Forms.BindingSource itemNamesBindingSource;
         private ItemNamesDataSetTableAdapters.ItemNamesTableAdapter itemNamesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
         private System.Windows.Forms.ErrorProvider errProvider;
         private System.Windows.Forms.Button btnViewReq;
+        private RequirementsDataSet requirementsDataSet;
+        private System.Windows.Forms.BindingSource requirementsBindingSource;
+        private RequirementsDataSetTableAdapters.RequirementsTableAdapter requirementsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeDataGridViewTextBoxColumn;
     }
 }
 

@@ -26,13 +26,16 @@ namespace FinalProject {
             }
             if (cboSearchBy.Text.Equals("Item")) {
                 this.itemNamesTableAdapter.SearchName(this.itemNamesDataSet.ItemNames, txtSearch.Text);
+            } else {
+                this.itemNamesTableAdapter.SearchType(this.itemNamesDataSet.ItemNames, txtSearch.Text);
             }
         }
 
         private void btnAdd_Click(object sender, EventArgs e) {
             errProvider.Clear();
             frmAddEdit addForm = new frmAddEdit();
-            addForm.Show();
+            addForm.ShowDialog();
+            dgvItems.DataSource = this.itemNamesTableAdapter.ResetTables();
         }
 
         private void btnExit_Click(object sender, EventArgs e) {
@@ -40,6 +43,8 @@ namespace FinalProject {
         }
 
         private void frmSearch_Load(object sender, EventArgs e) {
+            // TODO: This line of code loads data into the 'requirementsDataSet.Requirements' table. You can move, or remove it, as needed.
+            this.requirementsTableAdapter.Fill(this.requirementsDataSet.Requirements);
             // TODO: This line of code loads data into the 'itemNamesDataSet.ItemNames' table. You can move, or remove it, as needed.
             this.itemNamesTableAdapter.Fill(this.itemNamesDataSet.ItemNames);
 
@@ -47,20 +52,23 @@ namespace FinalProject {
 
         private void btnReset_Click(object sender, EventArgs e) {
             errProvider.Clear();
-            this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
+            dgvItems.DataSource = this.itemNamesTableAdapter.ResetTables();
         }
 
         private void btnViewReq_Click(object sender, EventArgs e) {
             errProvider.Clear();
             DataGridViewSelectedRowCollection rows = dgvItems.SelectedRows;
             if(rows.Count == 0) {
-                errProvider.SetError(dgvItems, "Please select an item");
-            }
-            if (rows.Count > 1) {
-                errProvider.SetError(dgvItems, "Please select only one item.");
+                errProvider.SetError(dgvItems, "Please select an entire row.");
                 return;
             }
-            
+            if (rows.Count > 1) {
+                errProvider.SetError(dgvItems, "Please select only one row.");
+                return;
+            }
+            DataRow myRow = (rows[0].DataBoundItem as DataRowView).Row;
+            dgvItems.DataSource = this.requirementsTableAdapter.GetData();
+            dgvItems.Update();
         }
     }
 

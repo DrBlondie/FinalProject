@@ -52,16 +52,30 @@ namespace FinalProject {
         }
 
         private void btnAddRequirement_Click(object sender, EventArgs e) {
+            lblstatus.Text = "";
             errProvider.Clear();
             if (lstLocations.Items.Count == 0) {
                 errProvider.SetError(lstLocations, "Not enough locations.");
                 return;
             }
             if (lstLocations.Items.Count > 4) {
-                errProvider.SetError(lstMaterials, "Too many requirements. (Max 4)");
+                errProvider.SetError(lstMaterials, "Too many locations. (Max 4)");
                 return;
             }
-            // Add requirement to database.
+            if (lstMaterials.Items.Count > 4) {
+                errProvider.SetError(lstMaterials, "Too many items. (Max 4)");
+            }
+            int price;
+            if (!int.TryParse(txtPrice.Text, out price)) {
+                lblstatus.Text = "Invalid price.";
+                return;
+            }
+            string[] req = new string[4];
+            for (int i = 0; i < lstMaterials.Items.Count; i++) {
+                req[i] = lstMaterials.Items[i].ToString();
+            }
+            this.requirementsTableAdapter.Insert(txtName.Text, req[0], req[1], req[2], req[3], price);
+            this.Close();
         }
 
         private void btnAddMaterials_Click(object sender, EventArgs e) {
@@ -76,7 +90,7 @@ namespace FinalProject {
                 return;
             }
 
-            lstMaterials.Items.Add(amount + " " + cboMaterials.SelectedText);
+            lstMaterials.Items.Add(amount + " " + cboMaterials.SelectedItem.ToString());
         }
 
         private void btnRemoveLoc_Click(object sender, EventArgs e) {
