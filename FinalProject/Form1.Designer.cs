@@ -33,23 +33,23 @@ namespace FinalProject {
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
             this.btnReset = new System.Windows.Forms.Button();
             this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
             this.btnViewReq = new System.Windows.Forms.Button();
             this.requirementsDataSet = new FinalProject.RequirementsDataSet();
             this.requirementsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.requirementsTableAdapter = new FinalProject.RequirementsDataSetTableAdapters.RequirementsTableAdapter();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
+            this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -94,7 +94,7 @@ namespace FinalProject {
             this.cboSearchBy.FormattingEnabled = true;
             this.cboSearchBy.Items.AddRange(new object[] {
             "Item",
-            "Location"});
+            "Type"});
             this.cboSearchBy.Location = new System.Drawing.Point(12, 45);
             this.cboSearchBy.Name = "cboSearchBy";
             this.cboSearchBy.Size = new System.Drawing.Size(127, 24);
@@ -144,30 +144,6 @@ namespace FinalProject {
             this.dgvItems.Size = new System.Drawing.Size(427, 372);
             this.dgvItems.TabIndex = 8;
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // itemNamesBindingSource
-            // 
-            this.itemNamesBindingSource.DataMember = "ItemNames";
-            this.itemNamesBindingSource.DataSource = this.itemNamesDataSet;
-            // 
-            // itemNamesDataSet
-            // 
-            this.itemNamesDataSet.DataSetName = "ItemNamesDataSet";
-            this.itemNamesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(327, 404);
@@ -181,10 +157,6 @@ namespace FinalProject {
             // errProvider
             // 
             this.errProvider.ContainerControl = this;
-            // 
-            // itemNamesTableAdapter
-            // 
-            this.itemNamesTableAdapter.ClearBeforeFill = true;
             // 
             // btnViewReq
             // 
@@ -210,6 +182,34 @@ namespace FinalProject {
             // 
             this.requirementsTableAdapter.ClearBeforeFill = true;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // itemNamesBindingSource
+            // 
+            this.itemNamesBindingSource.DataMember = "ItemNames";
+            this.itemNamesBindingSource.DataSource = this.itemNamesDataSet;
+            // 
+            // itemNamesDataSet
+            // 
+            this.itemNamesDataSet.DataSetName = "ItemNamesDataSet";
+            this.itemNamesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // itemNamesTableAdapter
+            // 
+            this.itemNamesTableAdapter.ClearBeforeFill = true;
+            // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,11 +230,11 @@ namespace FinalProject {
             this.Text = "Warframe Item Finder";
             this.Load += new System.EventHandler(this.frmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
