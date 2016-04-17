@@ -2,6 +2,8 @@ namespace FinalProject {
 
 
     partial class ItemNamesDataSet {
+        partial class ItemNamesDataTable {
+        }
     }
 }
 

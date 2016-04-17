@@ -35,7 +35,7 @@ namespace FinalProject {
             errProvider.Clear();
             frmAddEdit addForm = new frmAddEdit();
             addForm.ShowDialog();
-            dgvItems.DataSource = this.itemNamesTableAdapter.ResetTables();
+            this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
         }
 
         private void btnExit_Click(object sender, EventArgs e) {
@@ -47,30 +47,71 @@ namespace FinalProject {
             this.requirementsTableAdapter.Fill(this.requirementsDataSet.Requirements);
             // TODO: This line of code loads data into the 'itemNamesDataSet.ItemNames' table. You can move, or remove it, as needed.
             this.itemNamesTableAdapter.Fill(this.itemNamesDataSet.ItemNames);
+            dgvItems.MultiSelect = false;
+            dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
         }
 
         private void btnReset_Click(object sender, EventArgs e) {
             errProvider.Clear();
-            dgvItems.DataSource = this.itemNamesTableAdapter.ResetTables();
+            this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
+            dgvItems.Visible = true;
+            dgvRequirements.Visible = false;
         }
 
         private void btnViewReq_Click(object sender, EventArgs e) {
+            
+
             errProvider.Clear();
-            DataGridViewSelectedRowCollection rows = dgvItems.SelectedRows;
-            if(rows.Count == 0) {
-                errProvider.SetError(dgvItems, "Please select an entire row.");
+            if(dgvItems.SelectedRows.Count == 0) {
+                errProvider.SetError(dgvItems, "Please select a row.");
                 return;
             }
-            if (rows.Count > 1) {
-                errProvider.SetError(dgvItems, "Please select only one row.");
+            string item = dgvItems.SelectedRows[0].Cells[0].Value.ToString();
+            DataTable table = new DataTable();
+            for(int i = 0; i < dgvRequirements.Columns.Count; i++) {
+                table.Columns.Add(dgvRequirements.Columns[i].Name.ToString());
+            }
+            addRequirement(item, table);
+            dgvRequirements.DataSource = table;
+            dgvRequirements.Visible = true;
+            dgvItems.Visible = false;
+        }
+        private void addRequirement(string name, DataTable table) {
+            DataTable requirements = requirementsTableAdapter.Requirements(name);
+            if (requirements.Rows.Count == 0) {
                 return;
             }
-            DataRow myRow = (rows[0].DataBoundItem as DataRowView).Row;
-            dgvItems.DataSource = this.requirementsTableAdapter.GetData();
-            dgvItems.Update();
+            var row = table.NewRow();
+            row.ItemArray = requirements.Rows[0].ItemArray;
+            table.ImportRow(row);
+            for (int i = 0; i < 4; i++) {
+                if (requirements.Rows[0][i + 1] == null) {
+                    continue;
+                }
+                string temp = requirements.Rows[0][i + 1].ToString();
+                if(temp.Equals("")) {
+                    continue;
+                }
+                if (temp != null && (temp[0] >= 48 && temp[0] <= 57)) {
+                    temp = temp.Substring(2);
+                }
+                addRequirement(temp, table);
+            }
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e) {
+            errProvider.Clear();
+            if (dgvItems.SelectedRows.Count == 0) {
+                errProvider.SetError(dgvItems, "Please select a row.");
+                return;
+            }
+            string item = dgvItems.SelectedRows[0].Cells[0].Value.ToString();
+            frmAddEdit edit = new frmAddEdit();
+            edit.SetEditItem(item);
+            edit.ShowDialog();
+            this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
         }
     }
-
-
 }

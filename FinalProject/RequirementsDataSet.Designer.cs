@@ -291,6 +291,8 @@ namespace FinalProject {
             
             private global::System.Data.DataColumn columnPrice;
             
+            private global::System.Data.DataColumn columnLocation;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public RequirementsDataTable() {
@@ -374,6 +376,14 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LocationColumn {
+                get {
+                    return this.columnLocation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -409,7 +419,7 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public RequirementsRow AddRequirementsRow(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, string Price) {
+            public RequirementsRow AddRequirementsRow(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, int Price, string Location) {
                 RequirementsRow rowRequirementsRow = ((RequirementsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Item_Name,
@@ -417,7 +427,8 @@ namespace FinalProject {
                         Requirement_2,
                         Requirement_3,
                         Requirement_4,
-                        Price};
+                        Price,
+                        Location};
                 rowRequirementsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowRequirementsRow);
                 return rowRequirementsRow;
@@ -453,6 +464,7 @@ namespace FinalProject {
                 this.columnRequirement_3 = base.Columns["Requirement 3"];
                 this.columnRequirement_4 = base.Columns["Requirement 4"];
                 this.columnPrice = base.Columns["Price"];
+                this.columnLocation = base.Columns["Location"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -468,8 +480,10 @@ namespace FinalProject {
                 base.Columns.Add(this.columnRequirement_3);
                 this.columnRequirement_4 = new global::System.Data.DataColumn("Requirement 4", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRequirement_4);
-                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnPrice = new global::System.Data.DataColumn("Price", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrice);
+                this.columnLocation = new global::System.Data.DataColumn("Location", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLocation);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnItem_Name}, true));
                 this.columnItem_Name.AllowDBNull = false;
@@ -479,6 +493,9 @@ namespace FinalProject {
                 this.columnRequirement_2.MaxLength = 100;
                 this.columnRequirement_3.MaxLength = 100;
                 this.columnRequirement_4.MaxLength = 100;
+                this.columnPrice.AllowDBNull = false;
+                this.columnLocation.AllowDBNull = false;
+                this.columnLocation.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -696,17 +713,23 @@ namespace FinalProject {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Price {
+            public int Price {
                 get {
-                    try {
-                        return ((string)(this[this.tableRequirements.PriceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Price\' in table \'Requirements\' is DBNull.", e);
-                    }
+                    return ((int)(this[this.tableRequirements.PriceColumn]));
                 }
                 set {
                     this[this.tableRequirements.PriceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Location {
+                get {
+                    return ((string)(this[this.tableRequirements.LocationColumn]));
+                }
+                set {
+                    this[this.tableRequirements.LocationColumn] = value;
                 }
             }
             
@@ -756,18 +779,6 @@ namespace FinalProject {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetRequirement_4Null() {
                 this[this.tableRequirements.Requirement_4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPriceNull() {
-                return this.IsNull(this.tableRequirements.PriceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPriceNull() {
-                this[this.tableRequirements.PriceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -935,10 +946,12 @@ namespace FinalProject.RequirementsDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Requirement 2", "Requirement 2");
             tableMapping.ColumnMappings.Add("Requirement 3", "Requirement 3");
             tableMapping.ColumnMappings.Add("Requirement 4", "Requirement 4");
+            tableMapping.ColumnMappings.Add("Price", "Price");
+            tableMapping.ColumnMappings.Add("Location", "Location");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Requirements] WHERE (([Item Name] = @Original_Item_Name) AND ((@IsNull_Requirement_1 = 1 AND [Requirement 1] IS NULL) OR ([Requirement 1] = @Original_Requirement_1)) AND ((@IsNull_Requirement_2 = 1 AND [Requirement 2] IS NULL) OR ([Requirement 2] = @Original_Requirement_2)) AND ((@IsNull_Requirement_3 = 1 AND [Requirement 3] IS NULL) OR ([Requirement 3] = @Original_Requirement_3)) AND ((@IsNull_Requirement_4 = 1 AND [Requirement 4] IS NULL) OR ([Requirement 4] = @Original_Requirement_4)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Requirements] WHERE (([Item Name] = @Original_Item_Name) AND ((@IsNull_Requirement_1 = 1 AND [Requirement 1] IS NULL) OR ([Requirement 1] = @Original_Requirement_1)) AND ((@IsNull_Requirement_2 = 1 AND [Requirement 2] IS NULL) OR ([Requirement 2] = @Original_Requirement_2)) AND ((@IsNull_Requirement_3 = 1 AND [Requirement 3] IS NULL) OR ([Requirement 3] = @Original_Requirement_3)) AND ((@IsNull_Requirement_4 = 1 AND [Requirement 4] IS NULL) OR ([Requirement 4] = @Original_Requirement_4)) AND ([Price] = @Original_Price) AND ([Location] = @Original_Location))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -949,38 +962,34 @@ namespace FinalProject.RequirementsDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO Requirements
-                  ([Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4], Price)
-VALUES (@Item_Name,@Requirement_1,@Requirement_2,@Requirement_3,@Requirement_4,@Price); 
-SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4] FROM Requirements WHERE ([Item Name] = @Item_Name)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Requirements] ([Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4], [Price], [Location]) VALUES (@Item_Name, @Requirement_1, @Requirement_2, @Requirement_3, @Requirement_4, @Price, @Location);
+SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4], Price, Location FROM Requirements WHERE ([Item Name] = @Item_Name)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_1", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_2", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_3", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_4", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Requirements] SET [Item Name] = @Item_Name, [Requirement 1] = @Requirement_1, [Requirement 2] = @Requirement_2, [Requirement 3] = @Requirement_3, [Requirement 4] = @Requirement_4 WHERE (([Item Name] = @Original_Item_Name) AND ((@IsNull_Requirement_1 = 1 AND [Requirement 1] IS NULL) OR ([Requirement 1] = @Original_Requirement_1)) AND ((@IsNull_Requirement_2 = 1 AND [Requirement 2] IS NULL) OR ([Requirement 2] = @Original_Requirement_2)) AND ((@IsNull_Requirement_3 = 1 AND [Requirement 3] IS NULL) OR ([Requirement 3] = @Original_Requirement_3)) AND ((@IsNull_Requirement_4 = 1 AND [Requirement 4] IS NULL) OR ([Requirement 4] = @Original_Requirement_4)));
-SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4] FROM Requirements WHERE ([Item Name] = @Item_Name)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE Requirements
+SET          [Requirement 1] = @Requirement_1, [Requirement 2] = @Requirement_2, [Requirement 3] = @Requirement_3, [Requirement 4] = @Requirement_4, Price = @Price, Location = @Location
+WHERE  ([Item Name] = @Item_Name);  
+SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirement 4], Price, Location FROM Requirements WHERE ([Item Name] = @Item_Name)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Item_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_1", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_2", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_2", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_3", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_3", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Requirement_4", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Requirement_4", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_1", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_2", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_3", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Requirement_4", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Requirement 4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Price", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Location", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Location", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Item_Name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -997,12 +1006,11 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requireme" +
-                "nt 4] FROM Requirements";
+                "nt 4], Price, Location FROM dbo.Requirements";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requireme" +
-                "nt 4] FROM Requirements WHERE ([Item Name] LIKE @name + \'%\')";
+            this._commandCollection[1].CommandText = "SELECT * FROM dbo.Requirements\r\nWHERE ([Item Name] LIKE @name + \'%\')";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.NVarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Item Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -1035,7 +1043,7 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int GetRequirement(RequirementsDataSet.RequirementsDataTable dataTable, string name) {
+        public virtual int GetRequirements(RequirementsDataSet.RequirementsDataTable dataTable, string name) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -1054,7 +1062,7 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual RequirementsDataSet.RequirementsDataTable GetRequirements(string name) {
+        public virtual RequirementsDataSet.RequirementsDataTable Requirements(string name) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             if ((name == null)) {
                 throw new global::System.ArgumentNullException("name");
@@ -1100,7 +1108,7 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4) {
+        public virtual int Delete(string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4, int Original_Price, string Original_Location) {
             if ((Original_Item_Name == null)) {
                 throw new global::System.ArgumentNullException("Original_Item_Name");
             }
@@ -1139,6 +1147,13 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
                 this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_Requirement_4));
             }
+            this.Adapter.DeleteCommand.Parameters[9].Value = ((int)(Original_Price));
+            if ((Original_Location == null)) {
+                throw new global::System.ArgumentNullException("Original_Location");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_Location));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1159,7 +1174,7 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, int Price) {
+        public virtual int Insert(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, int Price, string Location) {
             if ((Item_Name == null)) {
                 throw new global::System.ArgumentNullException("Item_Name");
             }
@@ -1191,6 +1206,12 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Requirement_4));
             }
             this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Price));
+            if ((Location == null)) {
+                throw new global::System.ArgumentNullException("Location");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(Location));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1211,74 +1232,43 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Item_Name, string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4) {
+        public virtual int Update(string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, int Price, string Location, string Item_Name) {
+            if ((Requirement_1 == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Requirement_1));
+            }
+            if ((Requirement_2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Requirement_2));
+            }
+            if ((Requirement_3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Requirement_3));
+            }
+            if ((Requirement_4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Requirement_4));
+            }
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Price));
+            if ((Location == null)) {
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Location));
+            }
             if ((Item_Name == null)) {
                 throw new global::System.ArgumentNullException("Item_Name");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Item_Name));
-            }
-            if ((Requirement_1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Requirement_1));
-            }
-            if ((Requirement_2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Requirement_2));
-            }
-            if ((Requirement_3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Requirement_3));
-            }
-            if ((Requirement_4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Requirement_4));
-            }
-            if ((Original_Item_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Item_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_Item_Name));
-            }
-            if ((Original_Requirement_1 == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Requirement_1));
-            }
-            if ((Original_Requirement_2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Requirement_2));
-            }
-            if ((Original_Requirement_3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Requirement_3));
-            }
-            if ((Original_Requirement_4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_Requirement_4));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Item_Name));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1294,14 +1284,6 @@ SELECT [Item Name], [Requirement 1], [Requirement 2], [Requirement 3], [Requirem
                     this.Adapter.UpdateCommand.Connection.Close();
                 }
             }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Requirement_1, string Requirement_2, string Requirement_3, string Requirement_4, string Original_Item_Name, string Original_Requirement_1, string Original_Requirement_2, string Original_Requirement_3, string Original_Requirement_4) {
-            return this.Update(Original_Item_Name, Requirement_1, Requirement_2, Requirement_3, Requirement_4, Original_Item_Name, Original_Requirement_1, Original_Requirement_2, Original_Requirement_3, Original_Requirement_4);
         }
     }
     
