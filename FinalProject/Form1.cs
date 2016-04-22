@@ -92,9 +92,13 @@ namespace FinalProject {
                 table.Columns.Add(dgvRequirements.Columns[i].HeaderText);
             }
             addRequirement(item, table);
+            
             dgvRequirements.Columns.Clear();
             dgvRequirements.AutoGenerateColumns = true;
             dgvRequirements.DataSource = table;
+            for (int i = 0; i < dgvRequirements.Columns.Count; i++) {
+                dgvRequirements.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
             dgvRequirements.Visible = true;
             dgvItems.Visible = false;
         }

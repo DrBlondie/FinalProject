@@ -68,6 +68,10 @@ namespace FinalProject {
                 lblstatus.Text = "Invalid price.";
                 return;
             }
+            if(lstMaterials.Items.Count > 4) {
+                lblstatus.Text = "Too many items (Max 4).";
+                return;
+            }
             string[] req = new string[4];
             for (int i = 0; i < lstMaterials.Items.Count; i++) {
                 req[i] = lstMaterials.Items[i].ToString();
