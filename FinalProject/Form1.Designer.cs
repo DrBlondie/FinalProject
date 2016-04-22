@@ -33,6 +33,12 @@ namespace FinalProject {
             this.label2 = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             this.dgvItems = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.craftingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
             this.btnReset = new System.Windows.Forms.Button();
             this.errProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnViewReq = new System.Windows.Forms.Button();
@@ -47,20 +53,14 @@ namespace FinalProject {
             this.requirement4DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.locationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNamesDataSet = new FinalProject.ItemNamesDataSet();
             this.itemNamesTableAdapter = new FinalProject.ItemNamesDataSetTableAdapters.ItemNamesTableAdapter();
-            this.itemNamesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.typeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.craftingTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequirements)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -158,6 +158,44 @@ namespace FinalProject {
             this.dgvItems.RowTemplate.Height = 24;
             this.dgvItems.Size = new System.Drawing.Size(585, 372);
             this.dgvItems.TabIndex = 8;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // typeDataGridViewTextBoxColumn
+            // 
+            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
+            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
+            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
+            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // craftingTimeDataGridViewTextBoxColumn
+            // 
+            this.craftingTimeDataGridViewTextBoxColumn.DataPropertyName = "Crafting Time";
+            this.craftingTimeDataGridViewTextBoxColumn.HeaderText = "Crafting Time";
+            this.craftingTimeDataGridViewTextBoxColumn.Name = "craftingTimeDataGridViewTextBoxColumn";
+            this.craftingTimeDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn1
+            // 
+            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
+            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // itemNamesBindingSource
+            // 
+            this.itemNamesBindingSource.DataMember = "ItemNames";
+            this.itemNamesBindingSource.DataSource = this.itemNamesDataSet;
+            // 
+            // itemNamesDataSet
+            // 
+            this.itemNamesDataSet.DataSetName = "ItemNamesDataSet";
+            this.itemNamesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // btnReset
             // 
@@ -271,53 +309,15 @@ namespace FinalProject {
             this.locationDataGridViewTextBoxColumn.Name = "locationDataGridViewTextBoxColumn";
             this.locationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // itemNamesDataSet
-            // 
-            this.itemNamesDataSet.DataSetName = "ItemNamesDataSet";
-            this.itemNamesDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // itemNamesTableAdapter
             // 
             this.itemNamesTableAdapter.ClearBeforeFill = true;
-            // 
-            // itemNamesBindingSource
-            // 
-            this.itemNamesBindingSource.DataMember = "ItemNames";
-            this.itemNamesBindingSource.DataSource = this.itemNamesDataSet;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // typeDataGridViewTextBoxColumn
-            // 
-            this.typeDataGridViewTextBoxColumn.DataPropertyName = "Type";
-            this.typeDataGridViewTextBoxColumn.HeaderText = "Type";
-            this.typeDataGridViewTextBoxColumn.Name = "typeDataGridViewTextBoxColumn";
-            this.typeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // craftingTimeDataGridViewTextBoxColumn
-            // 
-            this.craftingTimeDataGridViewTextBoxColumn.DataPropertyName = "Crafting Time";
-            this.craftingTimeDataGridViewTextBoxColumn.HeaderText = "Crafting Time";
-            this.craftingTimeDataGridViewTextBoxColumn.Name = "craftingTimeDataGridViewTextBoxColumn";
-            this.craftingTimeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn1
-            // 
-            this.priceDataGridViewTextBoxColumn1.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn1.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn1.Name = "priceDataGridViewTextBoxColumn1";
-            this.priceDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // frmSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(765, 455);
+            this.ClientSize = new System.Drawing.Size(776, 455);
             this.Controls.Add(this.dgvRequirements);
             this.Controls.Add(this.btnViewReq);
             this.Controls.Add(this.btnReset);
@@ -334,12 +334,12 @@ namespace FinalProject {
             this.Text = "Warframe Item Finder";
             this.Load += new System.EventHandler(this.frmSearch_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.requirementsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequirements)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.itemNamesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

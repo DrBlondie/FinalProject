@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace FinalProject {
     public partial class frmSearch : Form {
+        private List<Item> itemList;
         public frmSearch() {
             InitializeComponent();
         }
@@ -49,6 +50,20 @@ namespace FinalProject {
             this.itemNamesTableAdapter.Fill(this.itemNamesDataSet.ItemNames);
             dgvItems.MultiSelect = false;
             dgvItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            itemList = new List<Item>();
+            DataTable itemNames = itemNamesTableAdapter.GetData();
+            foreach(DataRow el in itemNames.Rows) {
+                DataTable requirement = requirementsTableAdapter.Requirements(el[0].ToString());
+                if(requirement.Rows.Count == 0) {
+                    continue;
+                }
+                DataRow reqRows = requirement.Rows[0];
+                string[] reqs = new string[4];
+                for(int i = 0; i < 4; i++) {
+                    reqs[i] = reqRows[1 + i].ToString();
+                }
+                itemList.Add(new Item(el[0].ToString(),reqs,(int)el[3], (int)el[2], reqRows[6].ToString(),el[1].ToString()));
+            }
 
         }
 
@@ -57,34 +72,48 @@ namespace FinalProject {
             this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
             dgvItems.Visible = true;
             dgvRequirements.Visible = false;
+            btnAdd.Enabled = true;
+            btnEdit.Enabled = true;
+            btnSearch.Enabled = true;
         }
 
         private void btnViewReq_Click(object sender, EventArgs e) {
-            
-
             errProvider.Clear();
             if(dgvItems.SelectedRows.Count == 0) {
                 errProvider.SetError(dgvItems, "Please select a row.");
                 return;
             }
+            btnAdd.Enabled = false;
+            btnEdit.Enabled = false;
+            btnSearch.Enabled = false;
             string item = dgvItems.SelectedRows[0].Cells[0].Value.ToString();
             DataTable table = new DataTable();
             for(int i = 0; i < dgvRequirements.Columns.Count; i++) {
-                table.Columns.Add(dgvRequirements.Columns[i].Name.ToString());
+                table.Columns.Add(dgvRequirements.Columns[i].HeaderText);
             }
             addRequirement(item, table);
+            dgvRequirements.Columns.Clear();
+            dgvRequirements.AutoGenerateColumns = true;
             dgvRequirements.DataSource = table;
             dgvRequirements.Visible = true;
             dgvItems.Visible = false;
         }
         private void addRequirement(string name, DataTable table) {
-            DataTable requirements = requirementsTableAdapter.Requirements(name);
-            if (requirements.Rows.Count == 0) {
+            Item currentItem = findItemByName(name);
+            if(currentItem == null) {
+                addRequirementByRequirement(name, table);
+            } else {
+                addRequirementByItem(currentItem, table);
+            }
+        }
+        private void addRequirementByRequirement(string name, DataTable table) {
+            DataTable requirements = this.requirementsTableAdapter.Requirements(name);
+            if(requirements.Rows.Count == 0) {
                 return;
             }
             var row = table.NewRow();
             row.ItemArray = requirements.Rows[0].ItemArray;
-            table.ImportRow(row);
+            table.Rows.Add(row);
             for (int i = 0; i < 4; i++) {
                 if (requirements.Rows[0][i + 1] == null) {
                     continue;
@@ -100,6 +129,31 @@ namespace FinalProject {
             }
 
         }
+        public void addRequirementByItem(Item currentItem, DataTable table) {
+            object[] items = new object[7];
+            items[0] = currentItem.Name;
+            for (int i = 0; i < 4; i++) {
+                items[i + 1] = currentItem.Requirements[i];
+            }
+            items[5] = currentItem.Price;
+            items[6] = currentItem.Location;
+            var row = table.NewRow();
+            row.ItemArray = items;
+            table.Rows.Add(row);
+            for (int i = 0; i < 4; i++) {
+                if (items[i + 1] == null) {
+                    continue;
+                }
+                string temp = items[i + 1].ToString();
+                if (temp.Equals("")) {
+                    continue;
+                }
+                if (temp != null && (temp[0] >= 48 && temp[0] <= 57)) {
+                    temp = temp.Substring(2);
+                }
+                addRequirement(temp, table);
+            }
+        }
 
         private void btnEdit_Click(object sender, EventArgs e) {
             errProvider.Clear();
@@ -112,6 +166,14 @@ namespace FinalProject {
             edit.SetEditItem(item);
             edit.ShowDialog();
             this.itemNamesTableAdapter.ResetTable(this.itemNamesDataSet.ItemNames);
+        }
+        private Item findItemByName(string name) {
+            foreach(Item el in itemList) {
+                if (el.Name.Equals(name)) {
+                    return el;
+                }
+            }
+            return null;
         }
     }
 }
